@@ -1,6 +1,6 @@
 # Patient Disease Drug Graph
 
-### [中文介绍传送门-Chinese Introduction Portal](readme-zh.md)
+#### [中文介绍传送门-Chinese Introduction Portal](readme-zh.md)
 
 This is the display project of the drug database. The use of spring-boot made url redirect, the front end of the use of thymeleaf as MVC model to pass the data receiver.
 
@@ -53,3 +53,5 @@ When we click on one of the data,E.g:[http://kmap.xjtudlc.com/pdd_data/resource/
     }
 ```
 
+## License
+[MIT License](https://en.wikipedia.org/wiki/MIT_License)
