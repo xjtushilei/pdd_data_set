@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>pdd_data</title>
+    <script th:src="@{https://cdn.bootcss.com/jquery/2.2.4/jquery.js}"></script>
+    <link th:href="@{https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css}" rel="stylesheet"/>
+    <script th:src="@{https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js}"></script>
+
+</head>
+<body>
+
+<div class="container">
+    <table class="table table-hover">
+        <caption class="text-center"><h1>pdd_data</h1></caption>
+        <thead>
+        <tr>
+            <th><h3></h3></th>
+            <th><h3>subject</h3></th>
+            <th><h3>predicate</h3></th>
+            <th><h3>object</h3></th>
+        </tr>
+        </thead>
+        <tbody id="table_body">
+        <tr>
+            <th>searching...</th>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script th:inline="javascript">
+    var subject = [[${subject}]]
+    console.log(subject)
+</script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    $.ajax({
+        url: 'http://kmap.xjtudlc.com/pdd/pdd/query',
+        type: 'POST',
+        dataType: 'json',
+        data: {query: "SELECT  ?subject ?predicate ?object WHERE {  { <" + subject + "> ?predicate ?object} union {  ?subject ?predicate <" + subject + ">} }"},
+        success: function (data) {
+            console.log(data)
+            result = ''
+            bingings = data.results.bindings
+            console.log(bingings.length)
+            if (bingings.length == 0) {
+                $('#table_body').html('<tr>       <th>no results...</th>         </tr>')
+                return
+            }
+            for (index in bingings) {
+                result = result + '<tr>'
+                result = result + "<td>" + index + "</td>"
+
+
+                if (bingings[index].subject == null) {
+
+                    result = result + "<td>" + ' <a href="' + subject + '" target="_blank">' + subject + '</a>' + "</td>"
+                    predicate = bingings[index].predicate
+                    if (predicate.type == 'uri') {
+                        result = result + "<td>" + ' <a href="' + predicate.value + '" target="_blank">' + predicate.value + '</a>' + "</td>"
+                    } else {
+                        result = result + "<td>" + predicate.value + "</td>"
+                    }
+
+                    object = bingings[index].object
+                    if (object.type == 'uri') {
+                        result = result + "<td>" + ' <a href="' + object.value + '" target="_blank">' + object.value + '</a>' + "</td>"
+                    } else {
+                        result = result + "<td>" + object.value + "</td>"
+                    }
+                }
+                else {
+
+                    object = bingings[index].subject
+                    if (object.type == 'uri') {
+                        result = result + "<td>" + ' <a href="' + object.value + '" target="_blank">' + object.value + '</a>' + "</td>"
+                    } else {
+                        result = result + "<td>" + object.value + "</td>"
+                    }
+
+                    predicate = bingings[index].predicate
+                    if (predicate.type == 'uri') {
+                        result = result + "<td>" + ' <a href="' + predicate.value + '" target="_blank">' + predicate.value + '</a>' + "</td>"
+                    } else {
+                        result = result + "<td>" + predicate.value + "</td>"
+                    }
+                    result = result + "<td>" + ' <a href="' + subject + '" target="_blank">' + subject + '</a>' + "</td>"
+
+                }
+                result = result + '</tr>'
+            }
+            $('#table_body').html(result)
+            console.log("success");
+        }
+    })
+    /*]]>*/
+</script>
+</body>
+</html>
