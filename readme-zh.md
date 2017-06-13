@@ -10,6 +10,19 @@
 
 所以重要的是该数据集，不是这个工程！
 
+## What is PDD Graph 
+
+What is PDD Graph (Patient-Disease-Drug Graph):
+
+Electronic medical records contain multi-format electronic medical data that consist of an abundance of medical knowledge. Facing with patients symptoms, experienced caregivers make right medical decisions based on their professional knowledge that accurately grasps relationships between symptoms, diagnosis, and treatments. We aim to capture these relationships by constructing a large and high-quality heterogeneous graph linking patients, diseases, and drugs (PDD) in EMRs.
+
+Specifically, we extract important medical entities from MIMIC-III (Medical Information Mart for Intensive Care III) and automatically link them with the existing biomedical knowledge graphs, including ICD-9 ontology and DrugBank. The PDD graph presented is accessible on the Web via the SPARQL endpoint, and provides a pathway for medical discovery and applications, such as effective treatment recommendations.
+
+A subgraph of PDD is illustrated in the followng figure to betterunderstand the PDD graph.
+
+![](img/example.png)
+
+
 ## 数据集下载
 
 [Home page to konw how to download](http://kmap.xjtudlc.com/pdd/)
