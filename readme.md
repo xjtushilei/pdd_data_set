@@ -12,6 +12,18 @@ Using these data sets, you can perform sparql queries, perform entity relationsh
 
 So what is `important` is this data set ，not this project！
 
+## What is PDD Graph 
+
+What is PDD Graph (Patient-Disease-Drug Graph):
+
+Electronic medical records contain multi-format electronic medical data that consist of an abundance of medical knowledge. Facing with patients symptoms, experienced caregivers make right medical decisions based on their professional knowledge that accurately grasps relationships between symptoms, diagnosis, and treatments. We aim to capture these relationships by constructing a large and high-quality heterogeneous graph linking patients, diseases, and drugs (PDD) in EMRs.
+
+Specifically, we extract important medical entities from MIMIC-III (Medical Information Mart for Intensive Care III) and automatically link them with the existing biomedical knowledge graphs, including ICD-9 ontology and DrugBank. The PDD graph presented is accessible on the Web via the SPARQL endpoint, and provides a pathway for medical discovery and applications, such as effective treatment recommendations.
+
+A subgraph of PDD is illustrated in the followng figure to betterunderstand the PDD graph.
+
+[![](https://github.com/wangmengsd/pdd-graph/raw/master/example.png)](https://github.com/wangmengsd/pdd-graph/blob/master/example.png)
+
 ## Download
 
 [Home page to konw how to download](http://kmap.xjtudlc.com/pdd/)
@@ -54,4 +66,5 @@ When we click on one of the data,E.g:[http://kmap.xjtudlc.com/pdd_data/resource/
 ```
 
 ## License
-[MIT License](https://en.wikipedia.org/wiki/MIT_License)
+[![](https://i.creativecommons.org/l/by/4.0/88x31.png)](http://creativecommons.org/licenses/by/4.0/) This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
+
