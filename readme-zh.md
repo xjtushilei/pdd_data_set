@@ -1,3 +1,7 @@
+# 主页
+
+http://kmap.xjtudlc.com/pdd
+
 # 医疗诊断患病数据集
 
 这是医疗数据集的显示工程。利用spring-boot做了url重定向，前端使用thymeleaf 作为MVC的model传递数据的接受者。
