@@ -36,6 +36,27 @@ A subgraph of PDD is illustrated in the followng figure to betterunderstand the 
 
 Server bandwidth is limited, it is recommended to Datahub download.
 
+# Update
+
+*    ### V1.3
+
+       We have attached DDI triples in the latest version 1.3. These DDI triples are extracted from DrugBank and will be applied to conveniently retrieve the possible adverse drug combinations taken by corresponding patients.
+
+     A specific example please refer to the Tutorial [SPARQL Query Example5](http://kmap.xjtudlc.com/pdd/Tutorial.html#example5)
+
+
+*   ### V1.2
+
+    Fix the bugs in "diagnose_icd_information.nt".
+
+    In the new version, we have eliminated an engineering bug that was made when label matching of ICD-9 codes. This bug results in the linking failures of 380 diseases in MIMIC-III.
+  
+     For diseases in the latest PDD version, the overall number of diseases is 6985, and 6,983 diseases are connected to ICD-9 ontology. The only two failed matching codes are '71970' and 'NULL', which are not included in ICD-9 ontology.
+
+*   ### V1.1
+
+    Add Patient BMI data.
+
 
 ## This Project Technology
 
@@ -60,16 +81,6 @@ When we click on one of the data,E.g:[http://kmap.xjtudlc.com/pdd_data/resource/
 ![该系统展示](/img/2.png)
 
 
-## Core code
-
-```
-    @GetMapping("/**/*")
-    public String index(Model model , HttpServletRequest request) {
-        String subject = String.valueOf(request.getRequestURL());
-        model.addAttribute("subject",subject);
-        return "/index";
-    }
-```
 
 ## License
 [![](https://i.creativecommons.org/l/by/4.0/88x31.png)](http://creativecommons.org/licenses/by/4.0/) This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
