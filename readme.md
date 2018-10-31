@@ -1,6 +1,6 @@
 # HomePage
 
-http://kmap.xjtudlc.com/pdd
+http://pdd.wangmengsd.com/
 
 
 # Patient Disease Drug Graph
