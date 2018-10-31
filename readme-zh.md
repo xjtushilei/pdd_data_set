@@ -1,12 +1,5 @@
-## 前言
-
-http://kmap.xjtudlc.com/pdd/ 的网站和 pdd Graph数据，还有这个 pdd-graph 数据的web辅助显示工程，主要是我在维护和更新。
-
-
 # 主页
-
-
-http://kmap.xjtudlc.com/pdd
+http://pdd.wangmengsd.com/
 
 # 医疗诊断患病数据集
 
